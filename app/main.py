@@ -13,13 +13,7 @@ def main():
         # Wait for user input
         cmd = input()
 
-        #searching the command into the path
-        cmd_path = None
-        paths = PATH.split(":")
-        for path in paths:
-            if os.path.isfile(f"{path}/{cmd.split()[1]}"):
-                cmd_path = f"{path}/{cmd.split()[1]}"
-
+        
         if cmd == "exit 0":
             exit(0)
 
@@ -27,6 +21,13 @@ def main():
             sys.stdout.write("{}\n".format(cmd[5:]))
 
         if cmd.split()[0] == "type":
+            #searching the command into the path
+            cmd_path = None
+            paths = PATH.split(":")
+            for path in paths:
+                if os.path.isfile(f"{path}/{cmd.split()[1]}"):
+                    cmd_path = f"{path}/{cmd.split()[1]}"
+
             if cmd.split()[1] in valid_commands:
                 sys.stdout.write("{} is a shell builtin\n".format(cmd.split()[1]))
             elif cmd_path:
@@ -34,14 +35,20 @@ def main():
             else:
                 sys.stdout.write("{}: not found\n".format(cmd.split()[1]))
 
-        if cmd.split()[0] in paths:
-            file = [cmd_path, cmd.split()[1]]
-            subprocess.call(file)
-
-            # subprocess.run([cmd.split()[0], cmd.split(' ', 1)[1]])
-
         if cmd.split()[0] not in valid_commands:
-            sys.stdout.write("{}: command not found\n".format(cmd))
+            #searching the command into the path
+            cmd_path = None
+            paths = PATH.split(":")
+            for path in paths:
+                if os.path.isfile(f"{path}/{cmd.split()[0]}"):
+                    cmd_path = f"{path}/{cmd.split()[0]}"
+            
+            if cmd_path:
+                file = [cmd_path, cmd.split(' ', 1)[1]]
+                subprocess.call(file) 
+                # subprocess.run([cmd.split()[0], cmd.split(' ', 1)[1]])
+            else:
+                sys.stdout.write("{}: command not found\n".format(cmd))
 
         continue
 
