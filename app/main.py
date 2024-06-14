@@ -38,11 +38,11 @@ def main():
              sys.stdout.write("{}\n".format(os.getcwd()))
 
         if cmd.split()[0] == "cd":
-            if os.path.isfile(cmd.split(' ', 1)[1]):
+            try:
                 os.chdir(cmd.split(' ', 1)[1])
-            else:
-                sys.stdout.write("{}: {}: No such file or directory\n".format(cmd.split()[0], cmd.split(' ', 1)[1]))
-
+            except OSError:
+                print(f"cd: {cmd.split(' ', 1)[1]}: No such file or directory")
+            
         if cmd.split()[0] not in valid_commands:
             #searching the command into the path
             cmd_path = None
