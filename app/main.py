@@ -35,7 +35,7 @@ def main():
             else:
                 sys.stdout.write("{}: not found\n".format(cmd.split()[1]))
 
-        if cmd_path:
+        if cmd_path != None:
             file = [cmd_path, cmd.split()[1]]
             subprocess.call(file)
 
