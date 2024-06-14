@@ -12,7 +12,7 @@ def main():
         cmd = input()
         if cmd is not valid_commands:
             sys.stdout.write("{}: command not found\n".format(cmd))
-            sys.stdout.write("$ exit 0")
+            sys.stdout.write("$ exit")
         continue
 
 if __name__ == "__main__":
