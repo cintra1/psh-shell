@@ -35,11 +35,6 @@ def main():
             else:
                 sys.stdout.write("{}: not found\n".format(cmd.split()[1]))
 
-        if cmd_path != None:
-            file = [cmd_path, cmd.split()[1]]
-            subprocess.call(file)
-
-            # subprocess.run([cmd.split()[0], cmd.split(' ', 1)[1]])
 
         if cmd.split()[0] not in valid_commands:
             sys.stdout.write("{}: command not found\n".format(cmd))
