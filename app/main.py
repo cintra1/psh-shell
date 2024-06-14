@@ -10,8 +10,8 @@ def main():
         
         # Wait for user input
         cmd = input()
-        
-        if cmd == "error":
+
+        if cmd == "exit 0":
             exit(0)
 
         if cmd is not valid_commands:
