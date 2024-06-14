@@ -22,8 +22,8 @@ def main():
             cmd_path = None
             paths = PATH.split(":")
             for path in paths:
-                if os.path.isfile(f"{path}/{cmd}"):
-                    cmd_path = f"{path}/{cmd}"
+                if os.path.isfile(f"{path}/{cmd.split()[1]}"):
+                    cmd_path = f"{path}/{cmd.split()[1]}"
             if cmd.split()[1] in valid_commands:
                 sys.stdout.write("{} is a shell builtin\n".format(cmd.split()[1]))
             elif cmd_path:
