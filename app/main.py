@@ -7,10 +7,11 @@ def main():
     sys.stdout.flush()
 
     # Wait for user input
-    cmd = input()
-    if cmd not in valid_commands:
+
+    while True:
+        cmd = input()
         sys.stdout.write("{}: command not found\n".format(cmd))
-        continue 
+        continue
 
 if __name__ == "__main__":
     main()
