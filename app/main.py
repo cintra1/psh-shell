@@ -19,7 +19,7 @@ def main():
 
         if cmd.split()[0] == "type":
             if cmd.split()[1] in valid_commands:
-                sys.stdout.write("{} is a shell builtin".format(cmd.split()[1]))
+                sys.stdout.write("{} is a shell builtin\n".format(cmd.split()[1]))
 
         if cmd.split()[0] not in valid_commands:
             sys.stdout.write("{}: command not found\n".format(cmd))
