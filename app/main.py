@@ -2,13 +2,12 @@ import sys
 
 
 def main():
-    valid_commands = []
-    sys.stdout.write("$ ")
-    sys.stdout.flush()
-
-    # Wait for user input
 
     while True:
+        sys.stdout.write("$ ")
+        sys.stdout.flush()
+
+        # Wait for user input
         cmd = input()
         sys.stdout.write("{}: command not found\n".format(cmd))
         continue
