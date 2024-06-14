@@ -12,12 +12,6 @@ def main():
         # Wait for user input
         cmd = input()
 
-        cmd_path = None
-        paths = PATH.split(":")
-        for path in paths:
-            if os.path.isfile(f"{path}/{cmd}"):
-                cmd_path = f"{path}/{cmd}"
-
         if cmd == "exit 0":
             exit(0)
 
@@ -25,6 +19,11 @@ def main():
             sys.stdout.write("{}\n".format(cmd[5:]))
 
         if cmd.split()[0] == "type":
+            cmd_path = None
+            paths = PATH.split(":")
+            for path in paths:
+                if os.path.isfile(f"{path}/{cmd}"):
+                    cmd_path = f"{path}/{cmd}"
             if cmd.split()[1] in valid_commands:
                 sys.stdout.write("{} is a shell builtin\n".format(cmd.split()[1]))
             elif cmd_path:
