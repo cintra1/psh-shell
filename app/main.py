@@ -3,7 +3,7 @@ import os
 import subprocess
 
 def main():
-    valid_commands = ["echo","exit","type"]
+    valid_commands = ["echo","exit","type","pwd"]
     PATH = os.environ.get("PATH")
     
     while True:
@@ -12,7 +12,6 @@ def main():
         
         # Wait for user input
         cmd = input()
-
         
         if cmd == "exit 0":
             exit(0)
@@ -21,7 +20,7 @@ def main():
             sys.stdout.write("{}\n".format(cmd[5:]))
 
         if cmd.split()[0] == "type":
-            #searching the command into the path
+            # Searching the command into the path
             cmd_path = None
             paths = PATH.split(":")
             for path in paths:
@@ -35,6 +34,9 @@ def main():
             else:
                 sys.stdout.write("{}: not found\n".format(cmd.split()[1]))
 
+        if cmd.split()[0] == "pwd":
+             sys.stdout.write(PATH)
+
         if cmd.split()[0] not in valid_commands:
             #searching the command into the path
             cmd_path = None
@@ -46,7 +48,6 @@ def main():
             if cmd_path:
                 file = [cmd_path, cmd.split(' ', 1)[1]]
                 subprocess.call(file) 
-                # subprocess.run([cmd.split()[0], cmd.split(' ', 1)[1]])
             else:
                 sys.stdout.write("{}: command not found\n".format(cmd))
 
