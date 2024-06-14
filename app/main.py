@@ -35,7 +35,7 @@ def main():
                 sys.stdout.write("{}: not found\n".format(cmd.split()[1]))
 
         if cmd.split()[0] == "pwd":
-             sys.stdout.write("{}\n".format(PATH))
+             sys.stdout.write("{}\n".format(os.getcwd()))
 
         if cmd.split()[0] not in valid_commands:
             #searching the command into the path
