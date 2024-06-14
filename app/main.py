@@ -19,15 +19,18 @@ def main():
             sys.stdout.write("{}\n".format(cmd[5:]))
 
         if cmd.split()[0] == "type":
+
+            #searching the command into the path
             cmd_path = None
             paths = PATH.split(":")
             for path in paths:
                 if os.path.isfile(f"{path}/{cmd.split()[1]}"):
                     cmd_path = f"{path}/{cmd.split()[1]}"
+
             if cmd.split()[1] in valid_commands:
                 sys.stdout.write("{} is a shell builtin\n".format(cmd.split()[1]))
             elif cmd_path:
-                sys.stdout.write(f"{cmd} is {cmd_path}\n")
+                sys.stdout.write(f"{cmd.split()[1]} is {cmd_path}\n")
             else:
                 sys.stdout.write("{}: not found\n".format(cmd.split()[1]))
 
