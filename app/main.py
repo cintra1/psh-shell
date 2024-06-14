@@ -5,7 +5,8 @@ import subprocess
 def main():
     valid_commands = ["echo","exit","type","pwd","cd"]
     PATH = os.environ.get("PATH")
-    
+    HOME = os.environ.get("HOME")
+
     while True:
         sys.stdout.write("$ ")
         sys.stdout.flush()
@@ -38,11 +39,17 @@ def main():
              sys.stdout.write("{}\n".format(os.getcwd()))
 
         if cmd.split()[0] == "cd":
-            try:
-                os.chdir(cmd.split(' ', 1)[1])
-            except OSError:
-                print(f"cd: {cmd.split(' ', 1)[1]}: No such file or directory")
-            
+            if cmd.split(' ', 1)[1] == "~":
+                try:
+                    os.chdir(HOME)
+                except OSError:
+                    print(f"cd: {cmd.split(' ', 1)[1]}: No such file or directory")
+            else:
+                try:
+                    os.chdir(cmd.split(' ', 1)[1])
+                except OSError:
+                    print(f"cd: {cmd.split(' ', 1)[1]}: No such file or directory")
+                
         if cmd.split()[0] not in valid_commands:
             #searching the command into the path
             cmd_path = None
