@@ -2,7 +2,7 @@ import sys
 
 
 def main():
-    valid_commands = ["echo"]
+    valid_commands = ["echo","exit","type"]
     
     while True:
         sys.stdout.write("$ ")
@@ -14,8 +14,12 @@ def main():
         if cmd == "exit 0":
             exit(0)
 
-        if "echo" in cmd:
+        if cmd.split()[0] == "echo":
             sys.stdout.write("{}\n".format(cmd[5:]))
+
+        if cmd.split()[0] == "type":
+            if cmd.split()[1] in valid_commands:
+                sys.stdout.write("{} is a shell builtin".format(cmd.split()[1]))
 
         if cmd.split()[0] not in valid_commands:
             sys.stdout.write("{}: command not found\n".format(cmd))
