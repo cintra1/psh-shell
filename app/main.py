@@ -14,6 +14,9 @@ def main():
         if cmd == "exit 0":
             exit(0)
 
+        if cmd[0:3] == "echo":
+            sys.stdout.write(cmd)
+
         if cmd is not valid_commands:
             sys.stdout.write("{}: command not found\n".format(cmd))
 
