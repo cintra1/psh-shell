@@ -2,7 +2,7 @@ import sys
 
 
 def main():
-    valid_commands = []
+    valid_commands = ["echo"]
     
     while True:
         sys.stdout.write("$ ")
@@ -14,10 +14,10 @@ def main():
         if cmd == "exit 0":
             exit(0)
 
-        if cmd[0:3] == "echo":
-            sys.stdout.write(cmd)
+        if "echo" not in cmd:
+            sys.stdout.write(cmd[4:])
 
-        if cmd is not valid_commands:
+        if cmd not in valid_commands:
             sys.stdout.write("{}: command not found\n".format(cmd))
 
         continue
