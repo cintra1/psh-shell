@@ -10,9 +10,12 @@ def main():
         
         # Wait for user input
         cmd = input()
+        if cmd is "error":
+            sys.stdout.write("error 0")
+            
         if cmd is not valid_commands:
             sys.stdout.write("{}: command not found\n".format(cmd))
-            sys.stdout.write("$ exit")
+
         continue
 
 if __name__ == "__main__":
