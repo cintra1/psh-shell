@@ -14,7 +14,7 @@ def main():
         if cmd == "exit 0":
             exit(0)
 
-        if "echo" not in cmd:
+        if "echo" in cmd:
             sys.stdout.write(cmd[4:])
 
         if valid_commands not in cmd:
