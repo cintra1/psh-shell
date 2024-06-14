@@ -17,7 +17,7 @@ def main():
         if "echo" in cmd:
             sys.stdout.write("{}\n".format(cmd[5:]))
 
-        if valid_commands not in cmd:
+        if cmd.split()[0] not in valid_commands:
             sys.stdout.write("{}: command not found\n".format(cmd))
 
         continue
