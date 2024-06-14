@@ -9,6 +9,8 @@ def main():
     # Retrieve system's PATH and HOME environment variables
     PATH = os.environ.get("PATH")
     HOME = os.environ.get("HOME")
+
+    # Initialize OP to True to keep the shell loop running
     OP = True
 
     # Infinite loop to continuously prompt the user for input
@@ -21,6 +23,7 @@ def main():
         # Wait for user input
         cmd = input()
 
+        # If the user inputs "!q", set OP to False to stop the shell loop
         if cmd == "!q":
             OP = False
         
