@@ -3,7 +3,7 @@ import os
 import subprocess
 
 def main():
-    valid_commands = ["echo","exit","type","pwd"]
+    valid_commands = ["echo","exit","type","pwd","cd"]
     PATH = os.environ.get("PATH")
     
     while True:
@@ -36,6 +36,12 @@ def main():
 
         if cmd.split()[0] == "pwd":
              sys.stdout.write("{}\n".format(os.getcwd()))
+
+        if cmd.split()[0] == "cd":
+            if os.path.isfile(cmd.split(' ', 1)[1]):
+                os.chdir(cmd.split(' ', 1)[1])
+            else:
+                sys.stdout.write("{}: {}: No such file or directory\n".format(cmd.split()[0], cmd.split(' ', 1)[1]))
 
         if cmd.split()[0] not in valid_commands:
             #searching the command into the path
