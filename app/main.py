@@ -67,7 +67,7 @@ def main():
                     os.chdir(HOME)
                 except OSError:
                     print(f"cd: {cmd.split(' ', 1)[1]}: No such file or directory")
-            # Otherwise, change to the specified directory
+            # Otherwise, change to the specified directory 
             else:
                 try:
                     os.chdir(cmd.split(' ', 1)[1])
