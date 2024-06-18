@@ -1,35 +1,32 @@
-[![progress-banner](https://backend.codecrafters.io/progress/shell/41e92e65-4131-47e8-82f2-3462cd4bdc07)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
+![logo-psh-small](https://github.com/cintra1/psh-shell/assets/101955322/555f55d7-aea1-4975-9bb5-ae8d19cdbb45)
 
-This is a starting point for Python solutions to the
-["Build Your Own Shell" Challenge](https://app.codecrafters.io/courses/shell/overview).
+# psh - Python Shell (POSIX Compliant Implementation)
 
-In this challenge, you'll build your own POSIX compliant shell that's capable of
-interpreting shell commands, running external programs and builtin commands like
-cd, pwd, echo and more. Along the way, you'll learn about shell command parsing,
-REPLs, builtin commands, and more.
+For this project, I developed a POSIX-compliant shell capable of interpreting and executing shell commands. The shell supports both external programs and built-in commands such as cd, pwd, echo, and more. Throughout this project, I gained expertise in shell command parsing, Read-Eval-Print Loop (REPL) design, and the implementation of built-in commands.
 
-**Note**: If you're viewing this repo on GitHub, head over to
-[codecrafters.io](https://codecrafters.io) to try the challenge.
+## Key Features:
+- Command Parsing: Handles various shell commands and arguments.
+- REPL Implementation: Continuously reads and executes user inputs.
+- Built-in Commands: Includes cd, pwd, echo, and type.
 
-# Passing the first stage
+## Usage:
+Run the psh script to start the shell. Use commands like `echo`, `pwd`, `cd`, and `type`.
 
-The entry point for your `shell` implementation is in `app/main.py`. Study and
-uncomment the relevant code, and push your changes to pass the first stage:
+## Future Enhancements:
+- Command History: Navigate through previously entered commands.
+- Advanced Parsing: Support for piping and redirection.
+- Custom Prompt: Customizable shell prompt.
+- Configuration File: User-specific settings and startup commands.
 
-```sh
-git add .
-git commit -m "pass 1st stage" # any msg
-git push origin master
-```
+## Contributing
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
-Time to move on to the next stage!
+1. Fork the repository.
+2. Create a new branch (git checkout -b feature/improvement).
+3. Make your changes.
+4. Commit your changes (git commit -am 'Add new feature').
+5. Push to the branch (git push origin feature/improvement).
+6. Create a new Pull Request.
 
-# Stage 2 & beyond
-
-Note: This section is for stages 2 and beyond.
-
-1. Ensure you have `python (3.11)` installed locally
-1. Run `./your_shell.sh` to run your program, which is implemented in
-   `app/main.py`.
-1. Commit your changes and run `git push origin master` to submit your solution
-   to CodeCrafters. Test output will be streamed to your terminal.
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
